@@ -85,5 +85,5 @@ function displayStatus(response) {
   console.log(live_status);
   var div = document.getElementById("latest_stat");
   var data = live_status[live_status.length - 1];
-  div.append(data.Cases);
+  div.textContent = data.Cases;
 }

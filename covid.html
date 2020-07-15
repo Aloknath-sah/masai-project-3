@@ -8,6 +8,7 @@
     />
   </head>
   <body>
+    <!--Tabs-->
     <ul class="nav nav-pills nav-fill mb-3" id="pills-tab" role="tablist">
       <li class="nav-item" role="presentation">
         <a
@@ -18,7 +19,7 @@
           role="tab"
           aria-controls="pills-home"
           aria-selected="true"
-          >Covid Summary</a
+          >HOME</a
         >
       </li>
       <li class="nav-item" role="presentation">
@@ -30,7 +31,7 @@
           role="tab"
           aria-controls="pills-profile"
           aria-selected="false"
-          >total cases
+          >COVID Summary
         </a>
       </li>
       <li class="nav-item" role="presentation">
@@ -53,36 +54,7 @@
         role="tabpanel"
         aria-labelledby="pills-home-tab"
       >
-        <!--covid summary-->
-
-        <form>
-          <label>Enter the country</label>
-          <input id="c" placeholder="First character in capital" />
-
-          <button id="country">Show latest cases</button>
-          <button id="summary">show the summary</button>
-        </form>
-
-        <table class="table" id="d_summary">
-          <thead>
-            <tr>
-              <th class="bg-info">Country</th>
-              <th class="bg-success">New confirmed cases</th>
-              <th class="bg-primary">New Deaths</th>
-              <th class="bg-danger">New Recovered cases</th>
-              <th class="bg-warning">Total number of Deaths</th>
-            </tr>
-          </thead>
-        </table>
-        <div id="latest_stat"></div>
-      </div>
-      <div
-        class="tab-pane fade"
-        id="pills-profile"
-        role="tabpanel"
-        aria-labelledby="pills-profile-tab"
-      >
-        <!--carousal item-->
+        <!--Home Tab-->
 
         <div class="row">
           <div class="col-sm-12 col-md-6">
@@ -109,6 +81,19 @@
               potential treatments. WHO will continue to provide updated
               information as soon as clinical findings become available.
             </p>
+
+            <form class="form-group d-flex flex-column">
+              <h3>Enter Below The Country To Check Total Cases</h3>
+              <input
+                class="form-control"
+                id="c"
+                placeholder="First character in capital"
+              />
+
+              <button class="btn btn-outline-success" id="country">
+                Show latest cases
+              </button>
+            </form>
           </div>
 
           <div class="col-sm-12 col-md-6">
@@ -165,8 +150,36 @@
                 <span class="sr-only">Next</span>
               </a>
             </div>
+
+            <div class="text-danger h2 m-5" id="latest_stat"></div>
           </div>
         </div>
+      </div>
+      <div
+        class="tab-pane fade"
+        id="pills-profile"
+        role="tabpanel"
+        aria-labelledby="pills-profile-tab"
+      >
+        <!--covid summary tab-->
+
+        <form class="text-center">
+          <button class="btn btn-success" id="summary">
+            Show Cases in All Countries
+          </button>
+        </form>
+
+        <table class="table" id="d_summary">
+          <thead>
+            <tr>
+              <th class="bg-info">Country</th>
+              <th class="bg-success">New confirmed cases</th>
+              <th class="bg-primary">New Deaths</th>
+              <th class="bg-danger">New Recovered cases</th>
+              <th class="bg-warning">Total number of Deaths</th>
+            </tr>
+          </thead>
+        </table>
       </div>
       <div
         class="tab-pane fade"
