@@ -8,26 +8,191 @@
     />
   </head>
   <body>
-    <form>
-      <label>Enter the country</label>
-      <input id="c" placeholder="First character in capital" />
+    <ul class="nav nav-pills nav-fill mb-3" id="pills-tab" role="tablist">
+      <li class="nav-item" role="presentation">
+        <a
+          class="nav-link active"
+          id="pills-home-tab"
+          data-toggle="pill"
+          href="#pills-home"
+          role="tab"
+          aria-controls="pills-home"
+          aria-selected="true"
+          >Covid Summary</a
+        >
+      </li>
+      <li class="nav-item" role="presentation">
+        <a
+          class="nav-link"
+          id="pills-profile-tab"
+          data-toggle="pill"
+          href="#pills-profile"
+          role="tab"
+          aria-controls="pills-profile"
+          aria-selected="false"
+          >total cases
+        </a>
+      </li>
+      <li class="nav-item" role="presentation">
+        <a
+          class="nav-link"
+          id="pills-contact-tab"
+          data-toggle="pill"
+          href="#pills-contact"
+          role="tab"
+          aria-controls="pills-contact"
+          aria-selected="false"
+          >cases by country</a
+        >
+      </li>
+    </ul>
+    <div class="tab-content" id="pills-tabContent">
+      <div
+        class="tab-pane fade show active"
+        id="pills-home"
+        role="tabpanel"
+        aria-labelledby="pills-home-tab"
+      >
+        <!--covid summary-->
 
-      <button id="country">Show latest cases</button>
-      <button id="summary">show the summary</button>
-    </form>
+        <form>
+          <label>Enter the country</label>
+          <input id="c" placeholder="First character in capital" />
 
-    <table class="table" id="d_summary">
-      <thead>
-        <tr>
-          <th class="bg-info">Country</th>
-          <th class="bg-info">New confirmed cases</th>
-          <th class="bg-info">New Deaths</th>
-          <th class="bg-info">New Recovered cases</th>
-          <th class="bg-info">Total number of Deaths</th>
-        </tr>
-      </thead>
-    </table>
-    <div id="latest_stat"></div>
+          <button id="country">Show latest cases</button>
+          <button id="summary">show the summary</button>
+        </form>
+
+        <table class="table" id="d_summary">
+          <thead>
+            <tr>
+              <th class="bg-info">Country</th>
+              <th class="bg-success">New confirmed cases</th>
+              <th class="bg-primary">New Deaths</th>
+              <th class="bg-danger">New Recovered cases</th>
+              <th class="bg-warning">Total number of Deaths</th>
+            </tr>
+          </thead>
+        </table>
+        <div id="latest_stat"></div>
+      </div>
+      <div
+        class="tab-pane fade"
+        id="pills-profile"
+        role="tabpanel"
+        aria-labelledby="pills-profile-tab"
+      >
+        <!--carousal item-->
+
+        <div class="row">
+          <div class="col-sm-12 col-md-6">
+            <h2 class="text-success">About COVID-19</h2>
+            <hr />
+            <p>
+              Coronavirus disease (COVID-19) is an infectious disease caused by
+              a newly discovered coronavirus. Most people infected with the
+              COVID-19 virus will experience mild to moderate respiratory
+              illness and recover without requiring special treatment. Older
+              people, and those with underlying medical problems like
+              cardiovascular disease, diabetes, chronic respiratory disease, and
+              cancer are more likely to develop serious illness. The best way to
+              prevent and slow down transmission is be well informed about the
+              COVID-19 virus, the disease it causes and how it spreads. Protect
+              yourself and others from infection by washing your hands or using
+              an alcohol based rub frequently and not touching your face. The
+              COVID-19 virus spreads primarily through droplets of saliva or
+              discharge from the nose when an infected person coughs or sneezes,
+              so it’s important that you also practice respiratory etiquette
+              (for example, by coughing into a flexed elbow). At this time,
+              there are no specific vaccines or treatments for COVID-19.
+              However, there are many ongoing clinical trials evaluating
+              potential treatments. WHO will continue to provide updated
+              information as soon as clinical findings become available.
+            </p>
+          </div>
+
+          <div class="col-sm-12 col-md-6">
+            <div
+              id="carouselExampleInterval"
+              class="carousel slide"
+              data-ride="carousel"
+            >
+              <div class="carousel-inner" style="width: 600px;">
+                <div class="carousel-item active" data-interval="1000">
+                  <img
+                    src="https://cdn.pixabay.com/photo/2020/04/01/17/19/coronavirus-4991979__340.jpg"
+                    class="d-block w-100 img-fluid"
+                    alt="covid"
+                  />
+                </div>
+                <div class="carousel-item" data-interval="2000">
+                  <img
+                    src="https://cdn.pixabay.com/photo/2020/03/17/07/44/covid-19-4939288__340.jpg"
+                    class="d-block w-100 img-fluid"
+                    alt="mask- a new habit"
+                  />
+                </div>
+                <div class="carousel-item" data-interval="2000">
+                  <img
+                    src="https://cdn.pixabay.com/photo/2020/03/17/12/25/washing-hands-4940196__340.jpg"
+                    class="d-block w-100 img-fluid"
+                    alt="social distancing- a new norm"
+                  />
+                </div>
+              </div>
+              <a
+                class="carousel-control-prev"
+                href="#carouselExampleInterval"
+                role="button"
+                data-slide="prev"
+              >
+                <span
+                  class="carousel-control-prev-icon"
+                  aria-hidden="true"
+                ></span>
+                <span class="sr-only">Previous</span>
+              </a>
+              <a
+                class="carousel-control-next"
+                href="#carouselExampleInterval"
+                role="button"
+                data-slide="next"
+              >
+                <span
+                  class="carousel-control-next-icon"
+                  aria-hidden="true"
+                ></span>
+                <span class="sr-only">Next</span>
+              </a>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div
+        class="tab-pane fade"
+        id="pills-contact"
+        role="tabpanel"
+        aria-labelledby="pills-contact-tab"
+      >
+        ...
+      </div>
+    </div>
+
+    <script
+      src="https://code.jquery.com/jquery-3.5.1.slim.min.js"
+      integrity="sha384-DfXdz2htPH0lsSSs5nCTpuj/zy4C+OGpamoFVy38MVBnE+IbbVYUew+OrCXaRkfj"
+      crossorigin="anonymous"
+    ></script>
+    <script
+      src="https://cdn.jsdelivr.net/npm/popper.js@1.16.0/dist/umd/popper.min.js"
+      integrity="sha384-Q6E9RHvbIyZFJoft+2mJbHaEWldlvI9IOYy5n3zV9zzTtmI3UksdQRVvoxMfooAo"
+      crossorigin="anonymous"
+    ></script>
+    <script
+      src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/js/bootstrap.min.js"
+      integrity="sha384-OgVRvuATP1z7JjHLkuOU7Xw704+h835Lr+6QL9UvYjZE3Ipu6Tp75j7Bh/kR0JKI"
+      crossorigin="anonymous"
+    ></script>
     <script type="text/javascript" src="covid.js"></script>
   </body>
 </html>
