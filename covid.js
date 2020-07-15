@@ -7,6 +7,7 @@ window.onload = function () {
 };
 
 function handleSummary() {
+  event.preventDefault();
   var xhr = new XMLHttpRequest();
   xhr.open("GET", "https://api.covid19api.com/summary");
   xhr.send();
@@ -29,39 +30,48 @@ function displayData(response) {
 
     var country = document.createElement("th");
     country.textContent = data[i].Country;
+    country.setAttribute("class", "bg-primary");
     //console.log(country);
     cont.append(country);
 
     var new_confirmed = document.createElement("th");
     new_confirmed.textContent = data[i].NewConfirmed;
+    new_confirmed.setAttribute("class", "bg-warning");
     //console.log(new_confirmed);
     cont.append(new_confirmed);
 
     var new_deaths = document.createElement("th");
     new_deaths.textContent = data[i].NewDeaths;
+    new_deaths.setAttribute("class", "bg-secondary");
     cont.append(new_deaths);
 
     var new_recovered = document.createElement("th");
     new_recovered.textContent = data[i].NewRecovered;
+    new_recovered.setAttribute("class", "bg-success");
     cont.append(new_recovered);
 
     var total_deaths = document.createElement("th");
     total_deaths.textContent = data[i].TotalDeaths;
+    total_deaths.setAttribute("class", "bg-danger");
     cont.append(total_deaths);
-
+    //console.log(cont);
     tbody.append(cont);
+    //console.log(tbody);
+
+    div.append(tbody);
+    //console.log(div);
   }
-
-  console.log(cont);
-
-  div.append(tbody);
 }
 
 function handleCountry() {
+  event.preventDefault();
   var c = document.getElementById("c").value;
 
   var xhr = new XMLHttpRequest();
-  xhr.open("GET", "https://api.covid19api.com/total/country/" + c);
+  xhr.open(
+    "GET",
+    "https://api.covid19api.com/total/dayone/country/" + c + "/status/confirmed"
+  );
   xhr.send();
 
   xhr.onload = function () {
@@ -70,5 +80,10 @@ function handleCountry() {
 }
 
 function displayStatus(response) {
-  console.log(response);
+  //console.log(response);
+  var live_status = JSON.parse(response);
+  console.log(live_status);
+  var div = document.getElementById("latest_stat");
+  var data = live_status[live_status.length - 1];
+  div.append(data.Cases);
 }
