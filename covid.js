@@ -4,6 +4,9 @@ window.onload = function () {
 
   var country = document.getElementById("country");
   country.addEventListener("click", handleCountry);
+
+  var particular_country = document.getElementById("p_country");
+  particular_country.addEventListener("click", handleParticularCountry);
 };
 
 function handleSummary() {
@@ -86,4 +89,29 @@ function displayStatus(response) {
   var div = document.getElementById("latest_stat");
   var data = live_status[live_status.length - 1];
   div.textContent = data.Cases;
+}
+
+function handleParticularCountry() {
+  event.preventDefault();
+  var par_country = document.getElementById("par_country").value;
+
+  var xhr = new XMLHttpRequest();
+  xhr.open(
+    "GET",
+    "https://api.covid19api.com/live/country/" +
+      par_country +
+      "/status/confirmed"
+  );
+  xhr.send();
+
+  xhr.onload = function () {
+    displayParCountry(this.response);
+  };
+}
+
+function displayParCountry(response) {
+  var particular = JSON.parse(response);
+  console.log(particular);
+
+  var div = document.getElementById("d_particular");
 }

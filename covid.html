@@ -43,7 +43,7 @@
           role="tab"
           aria-controls="pills-contact"
           aria-selected="false"
-          >cases by country</a
+          >Cases by Selected Countries</a
         >
       </li>
     </ul>
@@ -94,6 +94,8 @@
                 Show latest cases
               </button>
             </form>
+
+            <div class="text-danger h2 m-5" id="latest_stat"></div>
           </div>
 
           <div class="col-sm-12 col-md-6">
@@ -150,8 +152,6 @@
                 <span class="sr-only">Next</span>
               </a>
             </div>
-
-            <div class="text-danger h2 m-5" id="latest_stat"></div>
           </div>
         </div>
       </div>
@@ -187,7 +187,24 @@
         role="tabpanel"
         aria-labelledby="pills-contact-tab"
       >
-        ...
+        <!--Display cases in a particular country-->
+
+        <form>
+          <input id="par_country" />
+          <button id="p_country">Get Cases By Selected Countries</button>
+        </form>
+
+        <table class="table" id="d_particular">
+          <thead>
+            <tr>
+              <th class="bg-info">Country</th>
+              <th class="bg-success">New confirmed cases</th>
+              <th class="bg-primary">New Deaths</th>
+              <th class="bg-danger">New Recovered cases</th>
+              <th class="bg-warning">Total number of Deaths</th>
+            </tr>
+          </thead>
+        </table>
       </div>
     </div>
 
