@@ -98,9 +98,7 @@ function handleParticularCountry() {
   var xhr = new XMLHttpRequest();
   xhr.open(
     "GET",
-    "https://api.covid19api.com/live/country/" +
-      par_country +
-      "/status/confirmed"
+    "https://api.covid19api.com/total/dayone/country/" + par_country
   );
   xhr.send();
 
@@ -114,4 +112,41 @@ function displayParCountry(response) {
   console.log(particular);
 
   var div = document.getElementById("d_particular");
+  for (var i = particular.length - 1; i > 50; i--) {
+    var tbody = document.createElement("tbody");
+    var cont = document.createElement("tr");
+
+    var country = document.createElement("th");
+    country.textContent = particular[i].Country;
+    country.setAttribute("class", "bg-primary");
+    //console.log(country);
+    cont.append(country);
+
+    var active = document.createElement("th");
+    active.textContent = particular[i].Active;
+    active.setAttribute("class", "bg-warning");
+    //console.log(active);
+    cont.append(active);
+
+    var confirmed = document.createElement("th");
+    confirmed.textContent = particular[i].Confirmed;
+    confirmed.setAttribute("class", "bg-secondary");
+    cont.append(confirmed);
+
+    var deaths = document.createElement("th");
+    deaths.textContent = particular[i].Deaths;
+    deaths.setAttribute("class", "bg-success");
+    cont.append(deaths);
+
+    var date = document.createElement("th");
+    date.textContent = particular[i].Date;
+    date.setAttribute("class", "bg-danger");
+    cont.append(date);
+    //console.log(cont);
+    tbody.append(cont);
+    //console.log(tbody);
+
+    div.append(tbody);
+    //console.log(div);
+  }
 }
