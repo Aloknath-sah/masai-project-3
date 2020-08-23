@@ -103,7 +103,7 @@ function handleParticularCountry() {
   xhr.send();
 
   xhr.onload = function () {
-    displayParCountry(this.response);
+    displayParCountry(this.response, this.val);
   };
 }
 
@@ -112,6 +112,7 @@ function displayParCountry(response) {
   console.log(particular);
 
   var div = document.getElementById("d_particular");
+
   for (var i = particular.length - 1; i > 50; i--) {
     var tbody = document.createElement("tbody");
     var cont = document.createElement("tr");

@@ -31,7 +31,7 @@
           role="tab"
           aria-controls="pills-profile"
           aria-selected="false"
-          >COVID Summary
+          >COVID Cases in whole World
         </a>
       </li>
       <li class="nav-item" role="presentation">
@@ -83,15 +83,17 @@
             </p>
 
             <form class="form-group d-flex flex-column">
-              <h3>Enter Below The Country To Check Total Cases</h3>
+              <h3 class="text-danger">
+                Enter Below The Country To Check Total Cases
+              </h3>
               <input
-                class="form-control"
+                class="form-control mb-2 rounded"
                 id="c"
-                placeholder="First character in capital"
+                placeholder="Enter the country here"
               />
 
-              <button class="btn btn-outline-success" id="country">
-                Show latest cases
+              <button class="btn btn-outline-success rounded-pill" id="country">
+                SHOW LATEST CASES
               </button>
             </form>
 
@@ -190,8 +192,13 @@
         <!--Display cases in a particular country-->
 
         <form class="form-group text-center container">
-          <input class="form-control" id="par_country" />
-          <button class="btn btn-success" id="p_country">
+          <input
+            class="form-control"
+            id="par_country"
+            placeholder="Enter the country"
+          />
+
+          <button class="btn btn-success rounded-pill" id="p_country">
             Get Cases By Selected Countries
           </button>
         </form>
